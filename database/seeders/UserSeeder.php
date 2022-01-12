@@ -35,13 +35,5 @@ class UserSeeder extends Seeder
         });
     }
 
-    public function array($max)
-    {
-        $values = [];
-        for ($i=0; $i < $max; $i++) {
-            $values[] = $i;
-        }
-
-        return $values;
-    }
+  
 }
