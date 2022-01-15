@@ -36,7 +36,7 @@
                                 @foreach ($users as $user)
 
                                     <div class="ml-4 text-lg leading-7 font-semibold">
-                                        <a href="#" class="underline text-gray-900 ">{{ $user->name }}</a>
+                                        <a href="{{ route('profile', $user->id) }}" class="underline text-gray-900 ">{{ $user->name }}</a>
                                     </div>
                                 @endforeach
                             </div>

@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +19,16 @@ Route::get('/', function () {
     $users = App\Models\User::get();
     return view('welcome', compact('users'));
 });
+
+Route::get ('/profile/{id}', function($id){
+    $user = User::find($id);
+    $posts = $user->posts()->with('category', 'image', 'tags')->withCount('comments')->get();
+    $videos = $user->videos()->with('category', 'image', 'tags')->withCount('comments')->get();
+
+
+   return view('profile', [
+       'user' => $user,
+       'posts' => $posts,
+       'videos' => $videos,
+   ]);
+})->name('profile');

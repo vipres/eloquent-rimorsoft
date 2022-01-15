@@ -18,8 +18,8 @@ class VideoSeeder extends Seeder
     public function run()
     {
         Video::factory(40)->create()->each(function(Video $video){
-            $video->image()->save(Image::factory()->make(['url' => 'https://lorempixel.com/90/90']));
-            
+            $video->image()->save(Image::factory()->make(['url' => 'https://picsum.photos/90/90']));
+
             $tags = Tag::all();
             $video->tags()->attach($tags->random(rand(1,3))->pluck('id')->toArray());
 
